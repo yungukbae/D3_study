@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Donut chart</title>
+    <style>
+        h2, p{
+            margin: 10px 0;
+        }
+        header{
+            margin-bottom: 40px;
+        }
+        .tip{
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+        .tip .delete{
+            color: hotpink;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body class="indigo">
+    
+    <header class="indigo darken-1 section">
+        <h2 class="center white-text">소비 내역</h2>
+        <p class="flow-text grey-text center text-lighten-2">Money tracker</p>
+    </header>
+
+    <div class="container section">
+        <div class="row">
+            <div class="col s12 m6">
+                <form class="card z-depth-0">
+                    <div class="card-content">
+                        <span class="card-title indigo-text">Add Item</span>
+                    <div class="input-field">
+                        <input type="text" id="name">
+                        <label for="name">Item name</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="cost">
+                        <label for="name">Item Cost</label>
+                    </div>
+                    <div class="input-field center">
+                        <button class="btn-large pink white-text">Add Item</button>
+                    </div>
+                    <div class="input-field center">
+                        <p class="red-text" id="error"></p>
+                    </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col s12 m5 push-m1">
+                <div class="canvas">
+
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script> -->
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  const settings = { timestampsInSnapshots: true }
+  db.settings(settings)
+//   firebase.analytics();
+</script>
+<script src="https://d3js.org/d3.v6.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="https://unpkg.com/d3-v6-tip@1.0.6/build/d3-v6-tip.js"></script>
+    <script src="script.js"></script>
+    <script src="graph.js"></script>
+
+</body>
+</html>
